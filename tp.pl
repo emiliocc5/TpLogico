@@ -106,4 +106,13 @@ intencionDeVotoEn(misiones, amarillo, 0).
 % Ejercicio 3
 compite(Candidato,Provincia):- partido(Candidato, Color), sePostula(Color,Provincia).
 
+mismoPartido(Candidato1, Candidato2):- partido(Candidato1, Color1), partido(Candidato2,Color2), Color1==Color2.
+
+leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia).
+leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia), not(compite(Candidato2, Provincia)).
+leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia), compite(Candidato2,Provincia), mismoPartido(Candidato1,Candidato2).
+leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia), compite(Candidato2,Provincia), partido(Candidato1,Color1), 
+partido(Candidato2,Color2), intencionDeVotoEn(Provincia,Color1,Intencion1), intencionDeVotoEn(Provincia,Color2,Intencion2), not(Intencion1 < Intencion2).
+
+
 
