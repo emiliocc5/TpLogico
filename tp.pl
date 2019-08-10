@@ -121,4 +121,12 @@ esElMasJoven(Candidato):-
 elGranCandidato(Candidato) :- 
   forall(compite(Candidato,Provincia),leGanaA(Candidato,_,Provincia)),
   esElMasJoven(Candidato).
-
+  
+% Punto 6
+promete(azul,construir([edificio(1000,hospital),edificio(100,jardin),edificio(5,escuela)])).
+promete(amarillo,construir([edificio(100,hospital),edificio(1,universidad),edificio(200,comisaria)])).
+promete(rojo,nuevosPuestosDeTrabajo(800000)).
+promete(amarillo,nuevosPuestosDeTrabajo(10000)).
+promete(azul,inflacion(2,4)).
+promete(amarillo,inflacion(1,15)).
+promete(rojo,inflacion(10,30)).
