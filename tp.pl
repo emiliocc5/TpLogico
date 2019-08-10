@@ -114,5 +114,11 @@ leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia), comp
 leGanaA(Candidato1, Candidato2, Provincia):- compite(Candidato1,Provincia), compite(Candidato2,Provincia), partido(Candidato1,Color1), 
 partido(Candidato2,Color2), intencionDeVotoEn(Provincia,Color1,Intencion1), intencionDeVotoEn(Provincia,Color2,Intencion2), not(Intencion1 < Intencion2).
 
-
+% Punto 4
+esElMasJoven(Candidato):-
+  edad(Candidato,Edad1), partido(Candidato,Partido)
+  forall((edad(Persona,Edad2),partido(Persona,Partido)),Edad2>Edad1).
+elGranCandidato(Candidato) :- 
+  forall(compite(Candidato,Provincia),leGanaA(Candidato,_,Provincia)),
+  esElMasJoven(Candidato).
 
